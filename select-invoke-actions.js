@@ -55,20 +55,10 @@ SelectWidgetInvokeActions.prototype.handleChangeEvent = function(event) {
 	var value = this.getSelectDomNode().value;
 	this.wiki.setText(this.selectTitle,this.selectField,this.selectIndex,value);
 
-	for(var t = 0; t < this.parseTreeNode.children.length; t++) {
-		if(this.parseTreeNode.children[t].children) {
-			for(var m = 0; m < this.parseTreeNode.children[t].children.length; m++) {
-				if(this.parseTreeNode.children[t].children[m].text === value) {
-					this.activeChild = t;
-				}
-			}
-		}
-	}
-
-	this.parseTreeNode.children = [this.parseTreeNode.children[this.activeChild]];
-
+	this.activeChild = 2*(this.getSelectDomNode().selectedIndex)+1;
 	var widgets = $tw.wiki.makeWidget(this.parseTreeNode.children[this.activeChild], {parentWidget:this});
 	widgets.parseTreeNode = this.parseTreeNode;
+	widgets.parseTreeNode.children = [this.parseTreeNode.children[this.activeChild]];
 	var container = $tw.fakeDocument.createElement("div");
 	widgets.setVariable("currentTiddler", this.getVariable("currentTiddler"));
 	widgets.render(container, null);
