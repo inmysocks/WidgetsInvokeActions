@@ -1,0 +1,9 @@
+{
+	"title": "$:/plugins/inmysocks/WidgetsInvokeActions",
+	"description": "A plugin let widgets other than the button widget trigger action widgets",
+	"author": "inmysocks",
+	"version": "0.0.1",
+	"core-version": ">=5.0.8",
+	"source": "",
+	"plugin-type": "plugin"
+}
